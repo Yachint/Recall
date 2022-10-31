@@ -1,0 +1,113 @@
+<div class="container">
+    <h2 class="list-heading">Quick actions</h2>
+    <mat-list>
+        <mat-card
+            matRipple
+            class="option-card clickable"
+            (click)="onCardSelected()"
+        >
+            <div class="option-icon-container">
+                <mat-icon class="option-icon">note_add</mat-icon>
+            </div>
+
+            <mat-card-header class="option-card-header">
+                <mat-card-title>Create a Note</mat-card-title>
+                <mat-card-subtitle
+                    >Creates a quick note that can also expire after given
+                    time</mat-card-subtitle
+                >
+            </mat-card-header>
+        </mat-card>
+
+        <mat-card
+            matRipple
+            class="option-card clickable"
+            (click)="onCardSelected()"
+        >
+            <div class="option-icon-container">
+                <mat-icon class="option-icon">fingerprint</mat-icon>
+            </div>
+
+            <mat-card-header class="option-card-header">
+                <mat-card-title>Store an account credential</mat-card-title>
+                <mat-card-subtitle
+                    >Like passwords, PIN or any other sensitive
+                    info</mat-card-subtitle
+                >
+            </mat-card-header>
+        </mat-card>
+
+        <mat-card
+            matRipple
+            class="option-card clickable"
+            (click)="onCardSelected()"
+        >
+            <div class="option-icon-container">
+                <mat-icon class="option-icon">upload_file</mat-icon>
+            </div>
+
+            <mat-card-header class="option-card-header">
+                <mat-card-title>Upload a Document/ File</mat-card-title>
+                <mat-card-subtitle
+                    >Documents like ID's, Receipts or any other personal
+                    docs</mat-card-subtitle
+                >
+            </mat-card-header>
+        </mat-card>
+    </mat-list>
+
+    <mat-divider></mat-divider>
+
+    <h2 class="list-heading">Your Files</h2>
+    <mat-list>
+        <mat-card
+            matRipple
+            class="option-card clickable"
+            (click)="onCardSelected()"
+        >
+            <div class="option-icon-container">
+                <mat-icon class="option-icon">snippet_folder</mat-icon>
+            </div>
+
+            <mat-card-header class="option-card-header">
+                <mat-card-title>Note Storage</mat-card-title>
+                <mat-card-subtitle>Access all your notes</mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+
+        <mat-card
+            matRipple
+            class="option-card clickable"
+            (click)="onCardSelected()"
+        >
+            <div class="option-icon-container">
+                <mat-icon class="option-icon">password</mat-icon>
+            </div>
+
+            <mat-card-header class="option-card-header">
+                <mat-card-title>Password storage</mat-card-title>
+                <mat-card-subtitle
+                    >Access your stored credentials</mat-card-subtitle
+                >
+            </mat-card-header>
+        </mat-card>
+
+        <mat-card
+            matRipple
+            class="option-card clickable"
+            (click)="onCardSelected()"
+        >
+            <div class="option-icon-container">
+                <mat-icon class="option-icon">inventory</mat-icon>
+            </div>
+
+            <mat-card-header class="option-card-header">
+                <mat-card-title>Document Storage</mat-card-title>
+                <mat-card-subtitle
+                    >Access all your encrypted files/
+                    documents</mat-card-subtitle
+                >
+            </mat-card-header>
+        </mat-card>
+    </mat-list>
+</div>

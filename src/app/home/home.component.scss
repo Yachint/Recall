@@ -1,0 +1,57 @@
+@import "~@angular/material/theming";
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-heading {
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 2em;
+}
+
+.option-card {
+    width: auto;
+    max-width: calc(100wh - 98px);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.clickable {
+    cursor: pointer;
+    &:hover {
+        @include mat-elevation(8);
+        // background-color: pink;
+    }
+}
+
+.option-card-header {
+    margin-top: 15px;
+}
+
+.option-icon {
+    margin-left: 10px;
+    transform: scale(1.5);
+}
+
+.option-icon-container {
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-divider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgba(255, 255, 255, 1);
+    // border: solid black 1px;
+}

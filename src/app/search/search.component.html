@@ -1,0 +1,19 @@
+<mat-form-field appearance="outline" class="form-field">
+    <mat-label>Search</mat-label>
+    <input
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearchTermChanged($event)"
+        matInput
+        placeholder="Name of note, credentials or docs"
+        class="input-field"
+    />
+    <div class="search-icon">
+        <mat-icon *ngIf="!searching" matSuffix>search</mat-icon>
+        <mat-spinner
+            *ngIf="searching"
+            class="loading-spinner"
+            [diameter]="25"
+        ></mat-spinner>
+    </div>
+    <!-- <mat-hint>Hint</mat-hint> -->
+</mat-form-field>
