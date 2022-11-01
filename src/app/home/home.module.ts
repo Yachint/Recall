@@ -5,10 +5,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
+import { ListViewerComponent } from './list-viewer/list-viewer.component';
+import { CommonModule } from '@angular/common';
+import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
-    declarations: [HomeComponent],
+    declarations: [HomeComponent, ListViewerComponent, LoadingSpinnerComponent],
     imports: [
+        CommonModule,
         HomeRoutingModule,
         MatCardModule,
         MatIconModule,

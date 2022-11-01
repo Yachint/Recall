@@ -11,6 +11,15 @@
     font-size: 2em;
 }
 
+mat-divider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgba(255, 255, 255, 1);
+    // border: solid black 1px;
+}
+
 .option-card {
     width: auto;
     max-width: calc(100wh - 98px);
@@ -40,25 +49,14 @@
     transform: scale(1.5);
 }
 
-.option-icon-container {
+.option-icon-date-container {
     margin-right: 10px;
     display: flex;
+    background-color: indigo;
+    color: white;
+    font-size: 1.6em;
+    padding: 10px;
+    border-radius: 100px;
     justify-content: center;
     align-items: center;
-}
-
-mat-divider {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: rgba(255, 255, 255, 1);
-    // border: solid black 1px;
-}
-
-.loading-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }

@@ -1,4 +1,8 @@
-<div class="container">
+<app-loading-spinner
+    class="loading-spinner"
+    *ngIf="isLoading"
+></app-loading-spinner>
+<div class="container" *ngIf="!isNavRequested">
     <h2 class="list-heading">Quick actions</h2>
     <mat-list>
         <mat-card
@@ -63,7 +67,7 @@
         <mat-card
             matRipple
             class="option-card clickable"
-            (click)="onCardSelected()"
+            (click)="onFolderSelected('notes')"
         >
             <div class="option-icon-container">
                 <mat-icon class="option-icon">snippet_folder</mat-icon>
@@ -78,7 +82,7 @@
         <mat-card
             matRipple
             class="option-card clickable"
-            (click)="onCardSelected()"
+            (click)="onFolderSelected('creds')"
         >
             <div class="option-icon-container">
                 <mat-icon class="option-icon">password</mat-icon>
@@ -95,7 +99,7 @@
         <mat-card
             matRipple
             class="option-card clickable"
-            (click)="onCardSelected()"
+            (click)="onFolderSelected('documents')"
         >
             <div class="option-icon-container">
                 <mat-icon class="option-icon">inventory</mat-icon>
@@ -110,4 +114,7 @@
             </mat-card-header>
         </mat-card>
     </mat-list>
+</div>
+<div class="container">
+    <router-outlet></router-outlet>
 </div>
