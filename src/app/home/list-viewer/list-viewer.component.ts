@@ -11,6 +11,10 @@ import { DataStoreService } from 'src/app/data/data-store.service';
 export class ListViewerComponent implements OnInit, OnDestroy {
     public itemList: any[];
     public itemType: string;
+    public pageHeader: string;
+    public selectedFilter: string = 'createdAt';
+    public sortDirection: string = 'DESC';
+
     private listSubscription: Subscription;
 
     constructor(
@@ -37,17 +41,20 @@ export class ListViewerComponent implements OnInit, OnDestroy {
         if (this.listSubscription) this.listSubscription.unsubscribe();
 
         if (this.itemType === 'notes') {
+            this.pageHeader = 'Notes';
             this.listSubscription = this.dataStoreService.notesData.subscribe(
                 (notes) => {
                     this.itemList = notes;
                 }
             );
         } else if (this.itemType === 'documents') {
+            this.pageHeader = 'Documents';
             this.listSubscription =
                 this.dataStoreService.documentsData.subscribe((documents) => {
                     this.itemList = documents;
                 });
         } else {
+            this.pageHeader = 'Credentials';
             this.listSubscription = this.dataStoreService.credsData.subscribe(
                 (creds) => {
                     this.itemList = creds;
@@ -58,5 +65,13 @@ export class ListViewerComponent implements OnInit, OnDestroy {
 
     onItemSelected() {
         console.log('Item Selected');
+    }
+
+    dateHeaderSelector(itemCurr: any, itemPrev: any): boolean {
+        let prevMonth = new Date(itemPrev.createdAt).getMonth();
+        let currMonth = new Date(itemCurr.createdAt).getMonth();
+
+        if (prevMonth === currMonth) return false;
+        return true;
     }
 }

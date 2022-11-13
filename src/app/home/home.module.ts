@@ -6,18 +6,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
 import { ListViewerComponent } from './list-viewer/list-viewer.component';
-import { CommonModule } from '@angular/common';
-import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
+import { SharedModule } from '../shared/shared.module';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
-    declarations: [HomeComponent, ListViewerComponent, LoadingSpinnerComponent],
+    declarations: [HomeComponent, ListViewerComponent],
     imports: [
-        CommonModule,
         HomeRoutingModule,
         MatCardModule,
         MatIconModule,
         MatRippleModule,
         MatListModule,
+        MatSelectModule,
+        MatFormFieldModule,
+        MatSlideToggleModule,
+        SharedModule,
     ],
     providers: [],
 })

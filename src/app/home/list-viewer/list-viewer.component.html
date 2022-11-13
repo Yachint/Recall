@@ -1,23 +1,62 @@
 <div class="container">
-    <h2 class="list-heading">Your Notes</h2>
+    <div class="main-header">
+        <h2 class="list-heading">Your {{ pageHeader }}</h2>
+        <div class="sorting-select">
+            <mat-form-field appearance="outline" class="form-select">
+                <mat-label>Choose filtering criteria</mat-label>
+                <mat-select [(value)]="selectedFilter">
+                    <mat-option value="createdAt">Creation Date</mat-option>
+                    <mat-option value="name">Name</mat-option>
+                    <mat-option value="updatedAt">Updation Date</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-select">
+                <mat-label>Sort Direction</mat-label>
+                <mat-select [(value)]="sortDirection">
+                    <mat-option value="DESC">Descending</mat-option>
+                    <mat-option value="ASC">Ascending</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
     <mat-divider></mat-divider>
 
     <mat-list>
-        <mat-card
-            matRipple
-            class="option-card clickable"
-            (click)="onItemSelected()"
-            *ngFor="let item of itemList; let i = index"
+        <div
+            *ngFor="
+                let item of itemList | listSort: selectedFilter:sortDirection;
+                index as i
+            "
         >
-            <div class="option-icon-date-container">
-                <!-- <mat-icon class="option-icon">note_add</mat-icon> -->
-                {{ i + 1 }}
-            </div>
+            <h2
+                class="card-sub-heading"
+                *ngIf="
+                    i !== 0
+                        ? dateHeaderSelector(itemList[i], itemList[i - 1])
+                        : true
+                "
+            >
+                {{ item.createdAt | dateTransform: "month" }}
+            </h2>
+            <mat-card
+                matRipple
+                class="option-card clickable"
+                (click)="onItemSelected()"
+            >
+                <div class="option-icon-date-container">
+                    <!-- <mat-icon class="option-icon">note_add</mat-icon> -->
+                    {{ i + 1 }}
+                </div>
 
-            <mat-card-header class="option-card-header">
-                <mat-card-title>{{ item.name }}</mat-card-title>
-                <mat-card-subtitle>{{ item.updatedAt }}</mat-card-subtitle>
-            </mat-card-header>
-        </mat-card>
+                <mat-card-header class="option-card-header">
+                    <mat-card-title>{{ item.name }}</mat-card-title>
+                    <mat-card-subtitle
+                        >Last changed on:
+                        {{ item.updatedAt | dateTransform }}</mat-card-subtitle
+                    >
+                </mat-card-header>
+            </mat-card>
+        </div>
     </mat-list>
 </div>

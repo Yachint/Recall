@@ -19,6 +19,14 @@ const notes: NoteModel[] = [
         createdAt: '2022-08-03T13:07:32.615+00:00',
         updatedAt: '2022-09-05T13:07:32.615+00:00',
     },
+    {
+        _id: '09uu48uh-677f-48ce-9035-99d093fe4bf2',
+        name: 'My Fav Song List',
+        content:
+            'Viverra suspendisse potenti nullam ac tortor vitae purus. Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet.',
+        createdAt: '2022-08-03T13:07:32.615+00:00',
+        updatedAt: '2022-10-05T13:07:32.615+00:00',
+    },
 ];
 
 const creds: CredModel[] = [
