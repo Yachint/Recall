@@ -29,16 +29,30 @@
                 index as i
             "
         >
-            <h2
-                class="card-sub-heading"
-                *ngIf="
-                    i !== 0
-                        ? dateHeaderSelector(itemList[i], itemList[i - 1])
-                        : true
-                "
-            >
-                {{ item.createdAt | dateTransform: "month" }}
-            </h2>
+            <div *ngIf="selectedFilter === 'name'">
+                <h2
+                    class="card-sub-heading"
+                    *ngIf="
+                        i !== 0
+                            ? nameHeaderSelector(itemList[i], itemList[i - 1])
+                            : true
+                    "
+                >
+                    {{ item.name.charAt(0).toUpperCase() }}
+                </h2>
+            </div>
+            <div *ngIf="selectedFilter !== 'name'">
+                <h2
+                    class="card-sub-heading"
+                    *ngIf="
+                        i !== 0
+                            ? dateHeaderSelector(itemList[i], itemList[i - 1])
+                            : true
+                    "
+                >
+                    {{ item.createdAt | dateTransform: "month" }}
+                </h2>
+            </div>
             <mat-card
                 matRipple
                 class="option-card clickable"

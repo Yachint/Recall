@@ -74,4 +74,11 @@ export class ListViewerComponent implements OnInit, OnDestroy {
         if (prevMonth === currMonth) return false;
         return true;
     }
+
+    nameHeaderSelector(itemCurr: any, itemPrev: any): boolean {
+        let prevLetter = itemPrev.name.charAt(0);
+        let currLetter = itemCurr.name.charAt(0);
+
+        return prevLetter === currLetter ? false : true;
+    }
 }

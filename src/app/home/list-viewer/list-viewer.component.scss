@@ -14,10 +14,21 @@
 .sorting-select {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap; // To wrap on smaller screeens
     align-items: center;
     justify-content: flex-end;
-    flex-grow: 1;
+    flex-grow: 1; // To fill the remaining width available
     margin-right: 30px;
+}
+
+@media (max-width: 950px) {
+    .main-header {
+        flex-direction: column; // change to column mode for smaller width (0 to 950)
+    }
+
+    .sorting-select {
+        margin-left: 30px; // also add right margin on smaller screens
+    }
 }
 
 .card-sub-heading {
