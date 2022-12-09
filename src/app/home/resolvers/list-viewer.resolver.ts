@@ -4,8 +4,9 @@ import {
     Resolve,
     RouterStateSnapshot,
 } from '@angular/router';
-import { exhaustMap, Observable, of, take } from 'rxjs';
+import { exhaustMap, finalize, Observable, of, take } from 'rxjs';
 import { DataStoreService } from 'src/app/data/data-store.service';
+import { LoaderService } from 'src/app/shared/services/loader.service';
 
 // #1 Why return an empty Observable using of(null) / Observable.of(null) ?
 // In order to indicate to the resolver that we have successfully resolved all
@@ -18,7 +19,10 @@ import { DataStoreService } from 'src/app/data/data-store.service';
 
 @Injectable({ providedIn: 'root' })
 export class ListViewerResolverService implements Resolve<void> {
-    constructor(private dataStoreService: DataStoreService) {}
+    constructor(
+        private dataStoreService: DataStoreService,
+        private loaderService: LoaderService
+    ) {}
 
     resolve(
         route: ActivatedRouteSnapshot,
@@ -26,6 +30,7 @@ export class ListViewerResolverService implements Resolve<void> {
     ): void | Observable<void> | Promise<void> {
         // resolve() will auto subscribe to the returned subscription
         const { type } = route.params;
+        this.loaderService.setLoading(true);
         // console.log(route);
         // console.log('RESOLVER: ', route.params);
         if (type === 'notes') {
@@ -38,6 +43,9 @@ export class ListViewerResolverService implements Resolve<void> {
                     // #1
                     if (data !== null) return of(null);
                     return this.dataStoreService.fetchNotes();
+                }),
+                finalize(() => {
+                    this.loaderService.setLoading(false);
                 })
             );
         } else if (type === 'documents') {
@@ -46,6 +54,9 @@ export class ListViewerResolverService implements Resolve<void> {
                 exhaustMap((data) => {
                     if (data !== null) return of(null);
                     return this.dataStoreService.fetchDocuments();
+                }),
+                finalize(() => {
+                    this.loaderService.setLoading(false);
                 })
             );
         } else {
@@ -54,6 +65,9 @@ export class ListViewerResolverService implements Resolve<void> {
                 exhaustMap((data) => {
                     if (data !== null) return of(null);
                     return this.dataStoreService.fetchCreds();
+                }),
+                finalize(() => {
+                    this.loaderService.setLoading(false);
                 })
             );
         }

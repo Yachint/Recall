@@ -17,3 +17,30 @@
     </div>
     <!-- <mat-hint>Hint</mat-hint> -->
 </mat-form-field>
+<div class="container">
+    <mat-list>
+        <mat-card
+            matRipple
+            class="option-card clickable"
+            (click)="onItemSelected()"
+            *ngFor="let item of itemList | filter: filterParam; i as index"
+        >
+            <div class="card-content-main">
+                <div class="option-icon-container">
+                    <mat-icon class="option-icon">{{
+                        listIconSelector(item.class)
+                    }}</mat-icon>
+                </div>
+
+                <mat-card-header class="option-card-header">
+                    <mat-card-title>{{ item.name }}</mat-card-title>
+                    <div class="title">
+                        <p>
+                            {{ item.createdAt | dateTransform }}
+                        </p>
+                    </div>
+                </mat-card-header>
+            </div>
+        </mat-card>
+    </mat-list>
+</div>

@@ -5,6 +5,7 @@ import { NoteModel } from './models/note.model';
 const notes: NoteModel[] = [
     {
         _id: '8b7eaab5-db66-40ff-878f-d300dc745353',
+        class: 'note',
         name: 'My secret list',
         content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non tellus orci ac auctor augue.',
@@ -13,6 +14,7 @@ const notes: NoteModel[] = [
     },
     {
         _id: '3abb2173-677f-48ce-9035-99d093fe4bf2',
+        class: 'note',
         name: 'Notes of my Pysch class',
         content:
             'Viverra suspendisse potenti nullam ac tortor vitae purus. Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet.',
@@ -21,6 +23,7 @@ const notes: NoteModel[] = [
     },
     {
         _id: '09uu48uh-677f-48ce-9035-99d093fe4bf2',
+        class: 'note',
         name: 'My Fav Song List',
         content:
             'Viverra suspendisse potenti nullam ac tortor vitae purus. Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet.',
@@ -32,6 +35,7 @@ const notes: NoteModel[] = [
 const creds: CredModel[] = [
     {
         _id: '9aa6d172-f86c-434e-9a52-f3993871210a',
+        class: 'cred',
         name: 'My password for XYZ',
         type: 'password',
         content: 'ThisIsSupeerSecurrreeee!!!',
@@ -40,6 +44,7 @@ const creds: CredModel[] = [
     },
     {
         _id: '7a7d9060-6155-46f5-90e2-72504f137e7a',
+        class: 'cred',
         name: 'My PIN for Credit Card XXXX90008',
         type: 'PIN',
         content: '998713',
@@ -48,6 +53,7 @@ const creds: CredModel[] = [
     },
     {
         _id: 'e74e90e7-a067-448c-b46e-9c5ac820f6e8',
+        class: 'cred',
         name: 'My Pubkey for random Server I Own',
         type: 'passphrase',
         content:
@@ -60,6 +66,7 @@ const creds: CredModel[] = [
 const documents: DocumentModel[] = [
     {
         _id: '3f09c200-ff23-4a47-a3fd-2e636ff27df8',
+        class: 'document',
         name: 'Birth certificate',
         type: 'PDF',
         url: 'https://www.orimi.com/pdf-test.pdf',
@@ -68,6 +75,7 @@ const documents: DocumentModel[] = [
     },
     {
         _id: 'ea0c6755-a1ee-4e16-b378-c907c5a276c5',
+        class: 'document',
         name: 'Driving License Photocopy',
         type: 'Image',
         url: 'https://binaries.templates.cdn.office.net/support/templates/en-us/lt55635225_quantized.png',

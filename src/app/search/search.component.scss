@@ -1,6 +1,11 @@
+@import "@angular/material/theming";
+
 .form-field {
     display: block;
-    margin: 20px;
+    // margin: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
     min-width: auto;
 }
 
@@ -8,4 +13,79 @@
     position: absolute;
     top: 5px;
     right: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.option-card {
+    width: auto;
+    max-width: calc(100wh - 98px);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card-content-main {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.clickable {
+    cursor: pointer;
+    &:hover {
+        @include mat-elevation(8);
+        // background-color: pink;
+    }
+}
+
+.option-card-header {
+    margin-top: 15px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.option-icon {
+    margin-left: 10px;
+    transform: scale(1);
+}
+
+.option-icon-container {
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+// .title-info {
+//     display: flex;
+//     flex-wrap: wrap; // To wrap on smaller screeens
+//     align-items: center;
+//     justify-content: flex-end;
+//     flex-grow: 1; // To fill the remaining width available
+//     margin-right: 30px;
+//     flex: 1;
+// }
+
+.title {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 20px;
 }

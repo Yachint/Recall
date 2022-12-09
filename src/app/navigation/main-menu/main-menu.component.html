@@ -79,7 +79,13 @@
 
     <mat-sidenav-content>
         <div class="content mat-elevation-z4">
-            <router-outlet></router-outlet>
+            <app-loading-spinner
+                class="loading-spinner"
+                *ngIf="loading"
+            ></app-loading-spinner>
+            <div [hidden]="loading">
+                <router-outlet></router-outlet>
+            </div>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

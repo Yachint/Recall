@@ -19,7 +19,10 @@ export class HomeComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        console.log(this.router.url);
+        console.log('OnInit: ', this.isNavRequested);
+    }
 
     onFolderSelected(path: string) {
         console.log('Card clicked!', path);
