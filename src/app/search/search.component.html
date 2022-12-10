@@ -7,6 +7,12 @@
         placeholder="Name of note, credentials or docs"
         class="input-field"
     />
+    <mat-chip-listbox aria-label="Fish selection">
+        <mat-chip-option>One fish</mat-chip-option>
+        <mat-chip-option>Two fish</mat-chip-option>
+        <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
+        <mat-chip-option color="warn">Warn fish</mat-chip-option>
+    </mat-chip-listbox>
     <div class="search-icon">
         <mat-icon *ngIf="!searching" matSuffix>search</mat-icon>
         <mat-spinner

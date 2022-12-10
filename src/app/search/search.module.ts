@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import { SharedModule } from '../shared/shared.module';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
     declarations: [SearchComponent],
@@ -26,6 +27,7 @@ import { SharedModule } from '../shared/shared.module';
         MatProgressSpinnerModule,
         MatListModule,
         SharedModule,
+        MatChipsModule,
     ],
     providers: [],
 })
