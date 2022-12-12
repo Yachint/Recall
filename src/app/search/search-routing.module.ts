@@ -9,6 +9,11 @@ const routes: Routes = [
         component: SearchComponent,
         resolve: [SearchListResolver],
     },
+    {
+        path: ':mode',
+        component: SearchComponent,
+        resolve: [SearchListResolver],
+    },
 ];
 
 @NgModule({

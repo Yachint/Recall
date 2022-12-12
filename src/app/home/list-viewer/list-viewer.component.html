@@ -22,6 +22,16 @@
     </div>
     <mat-divider></mat-divider>
 
+    <button
+        mat-fab
+        class="btn-fab"
+        color="primary"
+        (click)="onNavigateToSearch()"
+        aria-label="Example icon button with a delete icon"
+    >
+        <mat-icon>search</mat-icon>
+    </button>
+
     <mat-list>
         <div
             *ngFor="
@@ -58,12 +68,12 @@
                 class="option-card clickable"
                 (click)="onItemSelected()"
             >
-                <div class="option-icon-date-container">
-                    <!-- <mat-icon class="option-icon">note_add</mat-icon> -->
-                    {{ i + 1 }}
-                </div>
-
                 <mat-card-header class="option-card-header">
+                    <div mat-card-avatar class="option-icon-date-container">
+                        <!-- <mat-icon class="option-icon">note_add</mat-icon> -->
+                        {{ i + 1 }}
+                    </div>
+
                     <mat-card-title>{{ item.name }}</mat-card-title>
                     <mat-card-subtitle
                         >Last changed on:

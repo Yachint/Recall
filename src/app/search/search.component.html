@@ -7,11 +7,10 @@
         placeholder="Name of note, credentials or docs"
         class="input-field"
     />
-    <mat-chip-listbox aria-label="Fish selection">
-        <mat-chip-option>One fish</mat-chip-option>
-        <mat-chip-option>Two fish</mat-chip-option>
-        <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
-        <mat-chip-option color="warn">Warn fish</mat-chip-option>
+    <mat-chip-listbox #chip aria-label="class selection">
+        <mat-chip-option>note</mat-chip-option>
+        <mat-chip-option>cred</mat-chip-option>
+        <mat-chip-option>document</mat-chip-option>
     </mat-chip-listbox>
     <div class="search-icon">
         <mat-icon *ngIf="!searching" matSuffix>search</mat-icon>
@@ -23,22 +22,28 @@
     </div>
     <!-- <mat-hint>Hint</mat-hint> -->
 </mat-form-field>
+
 <div class="container">
     <mat-list>
         <mat-card
             matRipple
             class="option-card clickable"
             (click)="onItemSelected()"
-            *ngFor="let item of itemList | filter: filterParam; i as index"
+            *ngFor="
+                let item of itemList
+                    | filter: nullVal:chipValue
+                    | filter: filterParam;
+                i as index
+            "
         >
             <div class="card-content-main">
-                <div class="option-icon-container">
-                    <mat-icon class="option-icon">{{
-                        listIconSelector(item.class)
-                    }}</mat-icon>
-                </div>
-
                 <mat-card-header class="option-card-header">
+                    <div mat-card-avatar class="option-icon-container">
+                        <mat-icon class="option-icon">{{
+                            listIconSelector(item.class)
+                        }}</mat-icon>
+                    </div>
+
                     <mat-card-title>{{ item.name }}</mat-card-title>
                     <div class="title">
                         <p>

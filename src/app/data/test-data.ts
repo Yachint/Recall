@@ -82,6 +82,15 @@ const documents: DocumentModel[] = [
         createdAt: '2022-05-13T13:07:32.615+00:00',
         updatedAt: '2022-07-25T13:07:32.615+00:00',
     },
+    {
+        _id: '0f3febdf-93e8-4b56-99f5-6dcca16823fe',
+        class: 'document',
+        name: 'Server certificate',
+        type: 'PDF',
+        url: 'https://binaries.templates.cdn.office.net/support/templates/en-us/lt55635225_quantized.png',
+        createdAt: '2022-06-03T13:07:32.615+00:00',
+        updatedAt: '2022-08-15T13:07:32.615+00:00',
+    },
 ];
 
 const allData = [...notes, ...documents, ...creds];

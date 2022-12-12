@@ -1,4 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+    AfterViewInit,
+    ChangeDetectorRef,
+    Component,
+    OnDestroy,
+    OnInit,
+    ViewChild,
+} from '@angular/core';
+import { MatChipListbox } from '@angular/material/chips';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DataStoreService } from '../data/data-store.service';
 
@@ -7,16 +16,23 @@ import { DataStoreService } from '../data/data-store.service';
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit, OnDestroy {
+export class SearchComponent implements OnInit, OnDestroy, AfterViewInit {
     public searchTerm: string;
     public searching: boolean = false;
     public itemList: any[];
     public filterParam: string = '';
+    public nullVal: any = '';
     private listSubscription: Subscription;
-
+    private chipSubscription: Subscription;
+    public chipValue: string;
+    @ViewChild('chip') chip: MatChipListbox;
     private debounceTimer: ReturnType<typeof setTimeout> = null;
 
-    constructor(private dataStoreService: DataStoreService) {}
+    constructor(
+        private dataStoreService: DataStoreService,
+        private route: ActivatedRoute,
+        private cd: ChangeDetectorRef
+    ) {}
 
     ngOnInit(): void {
         this.listSubscription = this.dataStoreService.userData.subscribe(
@@ -24,21 +40,36 @@ export class SearchComponent implements OnInit, OnDestroy {
                 this.itemList = list;
             }
         );
+
+        if (this.route.snapshot.params['mode'] !== undefined) {
+            this.chipValue = this.route.snapshot.params['mode'];
+        }
+    }
+
+    ngAfterViewInit(): void {
+        this.chipSubscription = this.chip.change.subscribe((val) => {
+            this.chipValue = val.value;
+        });
+
+        if (this.chipValue !== undefined) {
+            this.chip.value = this.chipValue;
+            this.cd.detectChanges();
+        }
     }
 
     listIconSelector(className: string) {
         let icon: string;
         switch (className) {
             case 'note':
-                icon = 'note_add';
+                icon = 'snippet_folder';
                 break;
 
             case 'cred':
-                icon = 'fingerprint';
+                icon = 'password';
                 break;
 
             case 'document':
-                icon = 'upload_file';
+                icon = 'inventory';
                 break;
         }
         return icon;
@@ -46,6 +77,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.listSubscription.unsubscribe();
+        this.chipSubscription.unsubscribe();
     }
 
     onItemSelected(): void {

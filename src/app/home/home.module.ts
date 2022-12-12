@@ -9,6 +9,7 @@ import { ListViewerComponent } from './list-viewer/list-viewer.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatSelectModule,
         MatFormFieldModule,
         MatSlideToggleModule,
+        MatButtonModule,
         SharedModule,
     ],
     providers: [],

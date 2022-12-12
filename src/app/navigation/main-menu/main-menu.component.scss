@@ -10,11 +10,6 @@ mat-toolbar {
     transform: translate(-50%, -50%);
 }
 
-.button-active {
-    color: black;
-    background-color: yellow;
-}
-
 mat-sidenav {
     margin: 16px;
     width: 230px;
@@ -52,6 +47,24 @@ mat-sidenav-container {
 
     mat-icon {
         margin-right: 8px;
+        color: white;
+    }
+
+    span {
+        color: white;
+    }
+}
+
+.button-active {
+    color: black;
+    background-color: yellow;
+
+    span {
+        color: black;
+    }
+
+    mat-icon {
+        color: black;
     }
 }
 

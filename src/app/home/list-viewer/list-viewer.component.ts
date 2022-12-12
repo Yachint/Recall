@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DataStoreService } from 'src/app/data/data-store.service';
 
@@ -19,7 +19,8 @@ export class ListViewerComponent implements OnInit, OnDestroy {
 
     constructor(
         private route: ActivatedRoute,
-        private dataStoreService: DataStoreService
+        private dataStoreService: DataStoreService,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -33,6 +34,10 @@ export class ListViewerComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.listSubscription.unsubscribe();
+    }
+
+    onNavigateToSearch() {
+        this.router.navigate(['/search', this.itemType.slice(0, -1)]);
     }
 
     assignSubscription() {

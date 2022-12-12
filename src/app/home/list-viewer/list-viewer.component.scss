@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@import "@angular/material/theming";
 
 .form-select {
     margin-top: 20px;
@@ -63,7 +63,7 @@ mat-divider {
     margin-bottom: 20px;
     border-radius: 20px;
     display: flex;
-    align-items: center;
+    // align-items: center;
     cursor: pointer;
 }
 
@@ -76,12 +76,13 @@ mat-divider {
 }
 
 .option-card-header {
-    margin-top: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .option-icon {
     margin-left: 10px;
-    transform: scale(1.5);
+    transform: scale(1);
 }
 
 .option-icon-date-container {
@@ -90,8 +91,20 @@ mat-divider {
     background-color: indigo;
     color: white;
     font-size: 1.6em;
-    padding: 10px;
-    border-radius: 100px;
+    padding: 5px;
+    border-radius: 15px;
     justify-content: center;
     align-items: center;
+}
+
+// Fab button styles
+
+.btn-fab {
+    position: fixed;
+    // float: right;
+    z-index: 1;
+    bottom: 4em;
+    right: 4em;
+    // left: 88%;
+    // top: 95%;
 }

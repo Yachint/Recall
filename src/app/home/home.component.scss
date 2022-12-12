@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@import "@angular/material/theming";
 
 .container {
     display: flex;
@@ -19,7 +19,7 @@
     margin-bottom: 20px;
     border-radius: 20px;
     display: flex;
-    align-items: center;
+    // align-items: center;
     cursor: pointer;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .option-card-header {
-    margin-top: 15px;
+    margin: 15px;
 }
 
 .option-icon {
