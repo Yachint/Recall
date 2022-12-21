@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+}
+
+.note-heading {
+    font-weight: bold;
+}
+
+.main-bar {
+    display: flex;
+    flex-direction: row;
+}
+.option-icon {
+    margin-top: 2px;
+}
+
+.note-details {
+    margin-top: 20px;
+}
+
+.note-detail-point {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.note-history {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.cred-data {
+    margin-top: 10px;
+}
+
+.type-header {
+    font-size: 1.5em;
+    display: table-cell;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.heading-type {
+    background-color: indigo;
+    color: white;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.note-detail-header {
+    margin-top: 2px;
+    background-color: indigo;
+    color: white;
+    font-size: 0.9em;
+    padding: 8px;
+    border-radius: 15px;
+}
+
+.note-content {
+    padding: 20px;
+}

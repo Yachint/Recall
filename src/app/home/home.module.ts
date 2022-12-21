@@ -11,9 +11,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ItemViewerComponent } from './item-viewer/item-viewer.component';
 
 @NgModule({
-    declarations: [HomeComponent, ListViewerComponent],
+    declarations: [HomeComponent, ListViewerComponent, ItemViewerComponent],
     imports: [
         HomeRoutingModule,
         MatCardModule,
